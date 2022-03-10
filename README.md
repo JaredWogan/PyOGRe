@@ -8,7 +8,7 @@
 [![Twitter @BarakShoshany](https://img.shields.io/twitter/follow/BarakShoshany?style=social)](https://twitter.com/BarakShoshany)
 
 
-![Open in Visual Studio Code](https://open.vscode.dev/JaredWogan/PyOGRe)
+[Open in Visual Studio Code](https://open.vscode.dev/JaredWogan/PyOGRe)
 
 # PyOGRe - A Python Object-Oriented General Relativity Package
 Placeholder
