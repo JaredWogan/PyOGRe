@@ -6,7 +6,9 @@
 [![GitHub repo stars](https://img.shields.io/github/stars/JaredWogan/PyOGRe?style=social)](https://github.com/JaredWogan/PyOGRe)
 [![Twitter @JaredWogan](https://img.shields.io/twitter/follow/JaredWogan?style=social)](https://twitter.com/JaredWogan)
 [![Twitter @BarakShoshany](https://img.shields.io/twitter/follow/BarakShoshany?style=social)](https://twitter.com/BarakShoshany)
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/JaredWogan/PyOGRe)
+
+
+[![Open in Visual Studio Code]](https://open.vscode.dev/JaredWogan/PyOGRe)
 
 # PyOGRe - A Python Object-Oriented General Relativity Package
 Placeholder
