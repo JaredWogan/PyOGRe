@@ -1,0 +1,299 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10973,        291]
+NotebookOptionsPosition[      9579,        258]
+NotebookOutlinePosition[      9983,        274]
+CellTagsIndexPosition[      9940,        271]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<OGRe`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8551493991637583`*^9, 3.8551494039781485`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"969aadde-e6bc-47e4-ba39-17dc290d3b4a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"TNewCoordinates", "[", 
+   RowBox[{"\"\<Cartesian\>\"", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "x", ",", "y", ",", "z"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TNewCoordinates", "[", 
+   RowBox[{"\"\<Spherical\>\"", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TAddCoordTransformation", "[", 
+   RowBox[{
+    RowBox[{"\"\<Cartesian\>\"", "\[Rule]", "\"\<Spherical\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"x", "\[Rule]", 
+       RowBox[{"r", " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ",", " ", 
+      RowBox[{"y", "\[Rule]", 
+       RowBox[{"r", " ", 
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}], ",", " ", 
+      RowBox[{"z", "\[Rule]", " ", 
+       RowBox[{"r", " ", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}]}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TAddCoordTransformation", "[", 
+   RowBox[{
+    RowBox[{"\"\<Spherical\>\"", "\[Rule]", "\"\<Cartesian\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"r", "\[Rule]", 
+       SqrtBox[
+        RowBox[{
+         SuperscriptBox["x", "2"], "+", 
+         SuperscriptBox["y", "2"], "+", 
+         SuperscriptBox["z", "2"]}]]}], ",", 
+      RowBox[{"\[Theta]", "\[Rule]", 
+       RowBox[{"ArcCos", "[", 
+        FractionBox["z", 
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["x", "2"], "+", 
+           SuperscriptBox["y", "2"], "+", 
+           SuperscriptBox["z", "2"]}]]], "]"}]}], ",", 
+      RowBox[{"\[Phi]", "\[Rule]", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{"x", ",", "y"}], "]"}]}]}], "}"}]}], "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8551494161503334`*^9, 3.855149636341984*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"2e88a1bf-17a6-41b6-82dd-6d677bab9937"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TShow", "@", 
+  RowBox[{"TNewMetric", "[", 
+   RowBox[{"\"\<Minkowski\>\"", ",", " ", "\"\<Cartesian\>\"", ",", 
+    RowBox[{"DiagonalMatrix", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1", ",", "1"}], "}"}], "]"}], ",", 
+    " ", "\"\<g\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.855149648777183*^9, 3.855149711814946*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"6fea7ff2-0b25-4311-baac-52ae4c24594f"],
+
+Cell[BoxData[
+ StyleBox[
+  TemplateBox[{"\"Minkowski\"", "\":   \"", 
+    TemplateBox[{"\"g\"", 
+      TemplateBox[{"\"\[Mu]\"", "\"\[Nu]\""}, "RowDefault"], 
+      TemplateBox[{
+        StyleBox["\"\[Mu]\"", ShowContents -> False, StripOnInput -> False], 
+        StyleBox["\"\[Nu]\"", ShowContents -> False, StripOnInput -> False]}, 
+       "RowDefault"]}, "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+    "\"(\"", 
+    TemplateBox[{",", "\",\"", "t", "x", "y", "z"}, "RowWithSeparators"], 
+    "\")\"", "\" = \"", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", 
+       GridBox[{{
+          RowBox[{"-", "1"}], "0", "0", "0"}, {"0", "1", "0", "0"}, {
+         "0", "0", "1", "0"}, {"0", "0", "0", "1"}}, RowSpacings -> 1, 
+        ColumnSpacings -> 1, RowAlignments -> Baseline, ColumnAlignments -> 
+        Center], "\[NoBreak]", ")"}], 
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]},
+   "RowDefault"], "DisplayFormula",
+  StripOnInput->False]], "Output",
+ Editable->False,
+ CellLabelStyle->Directive["CellLabel", Smaller, 
+   RGBColor[0, 0, 1]],
+ CellChangeTimes->{3.855149712937196*^9},
+ CellLabel->"OGRe:",ExpressionUUID->"9c8010b0-1316-4ed5-b7ea-322fad5f95f3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TShow", "[", 
+  RowBox[{"\"\<Minkowski\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8551497751440287`*^9, 3.855149804962414*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"2e5b50df-0feb-4394-a535-36c1b4ad15ac"],
+
+Cell[BoxData[
+ StyleBox[
+  TemplateBox[{"\"Minkowski\"", "\":   \"", 
+    TemplateBox[{"\"g\"", 
+      TemplateBox[{
+        StyleBox["\"\[Mu]\"", ShowContents -> False, StripOnInput -> False], 
+        StyleBox["\"\[Nu]\"", ShowContents -> False, StripOnInput -> False]}, 
+       "RowDefault"], 
+      TemplateBox[{"\"\[Mu]\"", "\"\[Nu]\""}, "RowDefault"]}, 
+     "Subsuperscript", SyntaxForm -> SubsuperscriptBox], "\"(\"", 
+    TemplateBox[{",", "\",\"", "t", "x", "y", "z"}, "RowWithSeparators"], 
+    "\")\"", "\" = \"", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", 
+       GridBox[{{
+          RowBox[{"-", "1"}], "0", "0", "0"}, {"0", "1", "0", "0"}, {
+         "0", "0", "1", "0"}, {"0", "0", "0", "1"}}, RowSpacings -> 1, 
+        ColumnSpacings -> 1, RowAlignments -> Baseline, ColumnAlignments -> 
+        Center], "\[NoBreak]", ")"}], 
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]},
+   "RowDefault"], "DisplayFormula",
+  StripOnInput->False]], "Output",
+ Editable->False,
+ CellLabelStyle->Directive["CellLabel", Smaller, 
+   RGBColor[0, 0, 1]],
+ CellChangeTimes->{3.855149805439521*^9},
+ CellLabel->"OGRe:",ExpressionUUID->"b519c1ae-1f60-4b2e-ba7e-34111ebb0ea6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TShow", "[", 
+  RowBox[{"\"\<Minkowski\>\"", ",", "\"\<Spherical\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.855149720887968*^9, 3.855149738467146*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"78669e77-ab05-4280-9ca1-d77a08519a6e"],
+
+Cell[BoxData[
+ StyleBox[
+  TemplateBox[{"\"Minkowski\"", "\":   \"", 
+    TemplateBox[{"\"g\"", 
+      TemplateBox[{"\"\[Mu]\"", "\"\[Nu]\""}, "RowDefault"], 
+      TemplateBox[{
+        StyleBox["\"\[Mu]\"", ShowContents -> False, StripOnInput -> False], 
+        StyleBox["\"\[Nu]\"", ShowContents -> False, StripOnInput -> False]}, 
+       "RowDefault"]}, "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+    "\"(\"", 
+    TemplateBox[{",", "\",\"", "t", "r", "\[Theta]", "\[Phi]"}, 
+     "RowWithSeparators"], "\")\"", "\" = \"", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", 
+       GridBox[{{
+          RowBox[{"-", "1"}], "0", "0", "0"}, {"0", "1", "0", "0"}, {"0", "0", 
+          SuperscriptBox["r", "2"], "0"}, {"0", "0", "0", 
+          RowBox[{
+            SuperscriptBox["r", "2"], " ", 
+            SuperscriptBox[
+             RowBox[{"Sin", "[", "\[Theta]", "]"}], "2"]}]}}, RowSpacings -> 
+        1, ColumnSpacings -> 1, RowAlignments -> Baseline, ColumnAlignments -> 
+        Center], "\[NoBreak]", ")"}], 
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]},
+   "RowDefault"], "DisplayFormula",
+  StripOnInput->False]], "Output",
+ Editable->False,
+ CellLabelStyle->Directive["CellLabel", Smaller, 
+   RGBColor[0, 0, 1]],
+ CellChangeTimes->{3.8551497396399126`*^9},
+ CellLabel->"OGRe:",ExpressionUUID->"e985a778-1718-4ec2-aa50-5feebf094658"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TShow", "[", 
+  RowBox[{"\"\<Minkowski\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}], ",", " ", "\"\<Spherical\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8551504970819654`*^9, 3.855150513722953*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"c622a1dd-4d11-467d-b711-5c4b4f74d3f4"],
+
+Cell[BoxData[
+ StyleBox[
+  TemplateBox[{"\"Minkowski\"", "\":   \"", 
+    TemplateBox[{"\"g\"", 
+      TemplateBox[{
+        StyleBox["\"\[Mu]\"", ShowContents -> False, StripOnInput -> False], 
+        StyleBox["\"\[Nu]\"", ShowContents -> False, StripOnInput -> False]}, 
+       "RowDefault"], 
+      TemplateBox[{"\"\[Mu]\"", "\"\[Nu]\""}, "RowDefault"]}, 
+     "Subsuperscript", SyntaxForm -> SubsuperscriptBox], "\"(\"", 
+    TemplateBox[{",", "\",\"", "t", "r", "\[Theta]", "\[Phi]"}, 
+     "RowWithSeparators"], "\")\"", "\" = \"", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", 
+       GridBox[{{
+          RowBox[{"-", "1"}], "0", "0", "0"}, {"0", "1", "0", "0"}, {"0", "0", 
+          FractionBox["1", 
+           SuperscriptBox["r", "2"]], "0"}, {"0", "0", "0", 
+          FractionBox[
+           SuperscriptBox[
+            RowBox[{"Csc", "[", "\[Theta]", "]"}], "2"], 
+           SuperscriptBox["r", "2"]]}}, RowSpacings -> 1, ColumnSpacings -> 1,
+         RowAlignments -> Baseline, ColumnAlignments -> Center], "\[NoBreak]",
+        ")"}], 
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]},
+   "RowDefault"], "DisplayFormula",
+  StripOnInput->False]], "Output",
+ Editable->False,
+ CellLabelStyle->Directive["CellLabel", Smaller, 
+   RGBColor[0, 0, 1]],
+ CellChangeTimes->{3.855150514275796*^9},
+ CellLabel->"OGRe:",ExpressionUUID->"5fe61e67-5eba-4b88-a30c-6e5903032f47"]
+}, Open  ]]
+},
+WindowSize->{776, 872},
+WindowMargins->{{-959, Automatic}, {35, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8a92a4a7-e47e-4656-842e-5ca421ac350e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 245, 4, 67, "Input",ExpressionUUID->"969aadde-e6bc-47e4-ba39-17dc290d3b4a",
+ InitializationCell->True],
+Cell[806, 26, 2123, 58, 343, "Input",ExpressionUUID->"2e88a1bf-17a6-41b6-82dd-6d677bab9937",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[2954, 88, 472, 10, 73, "Input",ExpressionUUID->"6fea7ff2-0b25-4311-baac-52ae4c24594f"],
+Cell[3429, 100, 1186, 27, 128, "Output",ExpressionUUID->"9c8010b0-1316-4ed5-b7ea-322fad5f95f3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4652, 132, 293, 6, 43, "Input",ExpressionUUID->"2e5b50df-0feb-4394-a535-36c1b4ad15ac"],
+Cell[4948, 140, 1187, 27, 128, "Output",ExpressionUUID->"b519c1ae-1f60-4b2e-ba7e-34111ebb0ea6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6172, 172, 258, 4, 43, "Input",ExpressionUUID->"78669e77-ab05-4280-9ca1-d77a08519a6e"],
+Cell[6433, 178, 1370, 31, 134, "Output",ExpressionUUID->"e985a778-1718-4ec2-aa50-5feebf094658"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7840, 214, 327, 7, 43, "Input",ExpressionUUID->"c622a1dd-4d11-467d-b711-5c4b4f74d3f4"],
+Cell[8170, 223, 1393, 32, 158, "Output",ExpressionUUID->"5fe61e67-5eba-4b88-a30c-6e5903032f47"]
+}, Open  ]]
+}
+]
+*)
+

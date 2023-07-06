@@ -1,0 +1,245 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8653,        237]
+NotebookOptionsPosition[      7701,        211]
+NotebookOutlinePosition[      8105,        227]
+CellTagsIndexPosition[      8062,        224]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<OGRe`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.8551460451897607`*^9, 3.855146052289901*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"ab2beb4c-5f1f-4642-8e95-71eb0c644368"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     StyleBox[
+      TemplateBox[{"\"OGRe: An \"", 
+        StyleBox["\"O\"", Underlined, StripOnInput -> False], 
+        "\"bject-Oriented \"", 
+        StyleBox["\"G\"", Underlined, StripOnInput -> False], "\"eneral \"", 
+        StyleBox["\"Re\"", Underlined, StripOnInput -> False], 
+        "\"lativity Package for Mathematica\""},
+       "RowDefault"],
+      StripOnInput->False,
+      FontSize->Larger,
+      FontWeight->Bold]},
+    {
+     StyleBox[
+      TemplateBox[{"\"By Barak Shoshany (\"", 
+        TemplateBox[{"\"baraksh@gmail.com\"", "mailto:baraksh@gmail.com"}, 
+         "HyperlinkURL"], "\") (\"", 
+        TemplateBox[{"\"baraksh.com\"", "https://baraksh.com/"}, 
+         "HyperlinkURL"], "\")\""},
+       "RowDefault"],
+      StripOnInput->False,
+      FontWeight->Bold]},
+    {
+     StyleBox[
+      TemplateBox[{"\"v1.6 (2021-08-07)\""},
+       "RowDefault"],
+      StripOnInput->False,
+      FontWeight->Bold]},
+    {
+     StyleBox[
+      TemplateBox[{"\"GitHub repository: \"", 
+        TemplateBox[{
+         "\"https://github.com/bshoshany/OGRe\"", 
+          "https://github.com/bshoshany/OGRe"}, "HyperlinkURL"]},
+       "RowDefault"],
+      StripOnInput->False,
+      FontWeight->Bold]},
+    {
+     TemplateBox[{
+      "\"\[Bullet] To view the full documentation for the package, type \"", 
+       ButtonBox[
+        TagBox[
+         PaneSelectorBox[{
+          False -> StyleBox[
+            "\"TDocs[]\"", "Hyperlink", StripOnInput -> False], True -> 
+           StyleBox["\"TDocs[]\"", "HyperlinkActive", StripOnInput -> False]}, 
+          Dynamic[
+           CurrentValue["MouseOver"]], ImageSize -> Automatic, FrameMargins -> 
+          0], 
+         MouseAppearanceTag["LinkHand"]], ButtonFunction :> OGRe`TDocs[], 
+        Appearance -> "Frameless", BaseStyle -> "Hyperlink", Evaluator -> 
+        Automatic, Method -> "Preemptive"], "\".\""},
+      "RowDefault"]},
+    {
+     TemplateBox[{"\"\[Bullet] To list all available modules, type \"", 
+       ButtonBox[
+        TagBox[
+         PaneSelectorBox[{
+          False -> StyleBox[
+            "\"?OGRe`*\"", "Hyperlink", StripOnInput -> False], True -> 
+           StyleBox["\"?OGRe`*\"", "HyperlinkActive", StripOnInput -> False]}, 
+          Dynamic[
+           CurrentValue["MouseOver"]], ImageSize -> Automatic, FrameMargins -> 
+          0], 
+         MouseAppearanceTag["LinkHand"]], ButtonFunction :> 
+        OGRe`Private`OGRePrint[
+          Information["OGRe`*"]], Appearance -> "Frameless", BaseStyle -> 
+        "Hyperlink", Evaluator -> Automatic, Method -> "Preemptive"], "\".\""},
+      "RowDefault"]},
+    {
+     TemplateBox[{"\"\[Bullet] To get help on a particular module, type \"", 
+       StyleBox["\"?\"", "Input", StripOnInput -> False], 
+       "\" followed by the module name.\""},
+      "RowDefault"]},
+    {
+     TemplateBox[{"\"\[Bullet] To enable parallelization, type \"", 
+       ButtonBox[
+        TagBox[
+         PaneSelectorBox[{
+          False -> StyleBox[
+            "\"TSetParallelization[True]\"", "Hyperlink", StripOnInput -> 
+             False], True -> 
+           StyleBox[
+            "\"TSetParallelization[True]\"", "HyperlinkActive", StripOnInput -> 
+             False]}, 
+          Dynamic[
+           CurrentValue["MouseOver"]], ImageSize -> Automatic, FrameMargins -> 
+          0], 
+         MouseAppearanceTag["LinkHand"]], ButtonFunction :> 
+        OGRe`TSetParallelization[True], Appearance -> "Frameless", BaseStyle -> 
+        "Hyperlink", Evaluator -> Automatic, Method -> "Preemptive"], "\".\""},
+      "RowDefault"]},
+    {
+     TemplateBox[{"\"\[Bullet] \"", 
+       TemplateBox[{
+         DynamicBox[
+          ToBoxes[OGRe`Private`UpdateMessage, StandardForm]], 
+         "\" To disable automatic checks for updates at startup, type \"", 
+         ButtonBox[
+          TagBox[
+           
+           PaneSelectorBox[{
+            False -> StyleBox[
+              "\"TSetAutoUpdates[False]\"", "Hyperlink", StripOnInput -> 
+               False], True -> 
+             StyleBox[
+              "\"TSetAutoUpdates[False]\"", "HyperlinkActive", StripOnInput -> 
+               False]}, 
+            Dynamic[
+             CurrentValue["MouseOver"]], ImageSize -> Automatic, FrameMargins -> 
+            0], 
+           MouseAppearanceTag["LinkHand"]], ButtonFunction :> 
+          OGRe`TSetAutoUpdates[False], Appearance -> "Frameless", BaseStyle -> 
+          "Hyperlink", Evaluator -> Automatic, Method -> "Preemptive"], 
+         "\".\""}, "RowDefault"]},
+      "RowDefault"]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ Editable->False,
+ CellLabelStyle->Directive["CellLabel", Smaller, 
+   RGBColor[0, 0, 1]],
+ CellChangeTimes->{3.8551460531409206`*^9},
+ CellLabel->"OGRe:",ExpressionUUID->"eb6891a2-1584-473e-9070-b1d762a0bc4c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TShow", "@", 
+  RowBox[{"TNewCoordinates", "[", 
+   RowBox[{"\"\<Cartesian\>\"", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "x", ",", "y", ",", "z"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.855146083759198*^9, 3.8551461034190073`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"aeed04c5-6751-4bd4-9a17-dc2964eb73ba"],
+
+Cell[BoxData[
+ StyleBox[
+  TemplateBox[{"\"Cartesian\"", "\":   \"", 
+    TemplateBox[{"\"x\"", 
+      TemplateBox[{
+        StyleBox["\"\[Mu]\"", ShowContents -> False, StripOnInput -> False]}, 
+       "RowDefault"], 
+      TemplateBox[{"\"\[Mu]\""}, "RowDefault"]}, "Subsuperscript", SyntaxForm -> 
+     SubsuperscriptBox], "\" = \"", 
+    TagBox[
+     RowBox[{"(", "\[NoBreak]", 
+       TagBox[
+        GridBox[{{"t"}, {"x"}, {"y"}, {"z"}}, RowSpacings -> 1, 
+         ColumnAlignments -> Center, ColumnAlignments -> Left], Column], 
+       "\[NoBreak]", ")"}], 
+     Function[BoxForm`e$, 
+      MatrixForm[BoxForm`e$]]]},
+   "RowDefault"], "DisplayFormula",
+  StripOnInput->False]], "Output",
+ Editable->False,
+ CellLabelStyle->Directive["CellLabel", Smaller, 
+   RGBColor[0, 0, 1]],
+ CellChangeTimes->{3.8551461040187273`*^9},
+ CellLabel->"OGRe:",ExpressionUUID->"981991ba-cabd-4c1e-b686-6752036819f1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TGetComponents", "[", 
+  RowBox[{"\"\<Cartesian\>\"", ",", " ", 
+   RowBox[{"{", "1", "}"}], ",", " ", "\"\<Cartesian\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8551476703311453`*^9, 3.855147691595339*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"d7263d47-bdec-4106-ab2f-c6ae266fabe3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"t", ",", "x", ",", "y", ",", "z"}], "}"}]], "Output",
+ CellChangeTimes->{{3.85514767638398*^9, 3.8551476922521315`*^9}},
+ CellLabel->"Out[6]=",ExpressionUUID->"ed2d704b-19ba-4528-bf0e-f834158843ef"]
+}, Open  ]]
+},
+WindowSize->{776, 872},
+WindowMargins->{{-850, Automatic}, {Automatic, 44}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2fdf652a-f248-41b9-b038-96ee85754fcd"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 243, 4, 67, "Input",ExpressionUUID->"ab2beb4c-5f1f-4642-8e95-71eb0c644368",
+ InitializationCell->True],
+Cell[826, 28, 4965, 127, 549, "Output",ExpressionUUID->"eb6891a2-1584-473e-9070-b1d762a0bc4c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5828, 160, 357, 7, 43, "Input",ExpressionUUID->"aeed04c5-6751-4bd4-9a17-dc2964eb73ba"],
+Cell[6188, 169, 907, 23, 128, "Output",ExpressionUUID->"981991ba-cabd-4c1e-b686-6752036819f1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7132, 197, 312, 5, 43, "Input",ExpressionUUID->"d7263d47-bdec-4106-ab2f-c6ae266fabe3"],
+Cell[7447, 204, 238, 4, 64, "Output",ExpressionUUID->"ed2d704b-19ba-4528-bf0e-f834158843ef"]
+}, Open  ]]
+}
+]
+*)
+
