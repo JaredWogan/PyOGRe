@@ -190,15 +190,13 @@ class Coordinates(OGReObject):
         return {
             **{
                 ddf_coord: coord_ddot
-                if ddf_coord != 0
-                else None
                 for ddf_coord, coord_ddot in zip(ddf_coordinates, coordinates_ddot)
+                if ddf_coord != sym.S.Zero
             },
             **{
                 df_coord: coord_dot
-                if df_coord != 1
-                else None
                 for df_coord, coord_dot in zip(df_coordinates, coordinates_dot)
+                if df_coord != sym.Integer(1)
             },
             **{
                 f_coord: coord

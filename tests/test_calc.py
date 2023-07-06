@@ -3,6 +3,7 @@ import sympy as sym
 import PyOGRe as og
 from PyOGRe.Defaults import cartesian, spherical, minkowski, schwarzschild, flrw
 
+
 a1, a2, a3, a4, s = sym.symbols("a b c d s", seq=True)
 tensor = minkowski.new_tensor(
     name="Test Tensor",
